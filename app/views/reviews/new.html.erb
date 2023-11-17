@@ -1,0 +1,17 @@
+<h1>Ajouter un avis pour <%= @restaurant.name %></h1>
+
+<%= form_with model: [@restaurant, @review], url: restaurant_reviews_path(@restaurant), method: :post do |form| %>
+  <div>
+    <%= form.label :rating, "Note" %>
+    <%= form.number_field :rating, in: 0..5 %>
+  </div>
+
+  <div>
+    <%= form.label :content, "Contenu de l'avis" %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.submit "Ajouter l'avis" %>
+  </div>
+<% end %>
